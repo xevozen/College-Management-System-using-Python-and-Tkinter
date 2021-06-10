@@ -11,14 +11,11 @@ global root_window
 root_window = root
 def on_closing():
     root_window.destroy()
-    # if messagebox.askokcancel("Quit", "Do you want to quit?"):
-    #     window.destroy()
     
 def execute_query():
     query_input = queryInput.get(1.0, "end-1c")
     db = mysql.connector.connect(host="localhost", user="root", password="", database="nsec_db")
     mycursor = db.cursor(buffered = True)
-    # query_input = db.converter.escape(query_input)
     try:
         mycursor.execute(query_input)
         db.commit()

@@ -31,13 +31,9 @@ def search():
         return 
     note_text['text'] = "Data: "+str(len(rows))+" Rows"
     for row in rows:
-        # data = list(row)
-        # data[2] = (data[2][:15] + ' ... ') if len(data[2]) > 15 else data[2]
         data_table.insert('', END, values=row)
     db.commit()
     db.close()
-    # pass
-
 
 # IT WILL GET DATA IN LEFTBOX (getdata made events there and fecth value there also)
 def getdata(event):
@@ -93,31 +89,9 @@ DepartmentLabel=Label(leftbox,text="Department",font=("Helvetica", 15),fg="#eae2
 DepartmentLabel.place(x=10, y=230)
 scrolly=Scrollbar(leftbox,orient=VERTICAL)
 DepartmentEntry=Text(leftbox, font=("Helvetica", 15),bd=0, yscrollcommand=scrolly.set)
-# DescriptionEntry['text'] = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 scrolly.config(command=DepartmentEntry.yview)
 DepartmentEntry.place(x=160, y=235, width = 300, height = 70)
 scrolly.place(x=460, y=235, height = 70)
-
-
-# # LEFT BOX BUTTONS
-# btnfrm=Frame(leftbox, bd=0, bg="brown")
-# btnfrm.place(x=0,y=300,width=500,height=50)
-
-# addbt=Button(btnfrm,text="Add",font=("Helvetica", 12),bg="indianred",fg="white",bd=0,command=add)
-# addbt.place(x=50, y=0, width = 70)
-# updatebt=Button(btnfrm,text="Edit",font=("Helvetica", 12),bg="indianred",fg="white",bd=0,command=update)
-# updatebt.configure(state = "disabled")
-# updatebt.place(x=150, y=0, width = 70)
-# deletebt=Button(btnfrm,text="Delete",font=("Helvetica", 12),bg="indianred",fg="white",command=delete1, bd =0)
-# deletebt.configure(state = "disabled")
-# deletebt.place(x=250, y=0, width = 70)
-# clrbt=Button(btnfrm,text="Clear",font=("Helvetica", 12),bg="indianred",fg="white",command=clear, bd = 0)
-# clrbt.place(x=350, y=0, width = 70)
-
-
-
-
-
 
 # RIGHT BOX
 rightbox=Frame(root,bd=0,bg="indianred")
@@ -154,10 +128,7 @@ data_table.column("year",width=50)
 data_table.column("department",width=30)
 data_table.pack(fill=BOTH,expand=1)
 data_table.bind("<ButtonRelease-1>",getdata)
-# show()
+
 search()
-# random_string()
-
-
 
 root.mainloop()

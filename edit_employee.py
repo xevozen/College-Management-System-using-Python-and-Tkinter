@@ -258,9 +258,7 @@ data_table.column("Designation",width=30)
 data_table.column("department",width=30)
 data_table.pack(fill=BOTH,expand=1)
 data_table.bind("<ButtonRelease-1>",getdata)
-# show()
 search()
-# random_string()
 
 
 

@@ -31,8 +31,6 @@ def search():
         return 
     note_text['text'] = "Data: "+str(len(rows))+" Rows"
     for row in rows:
-        # data = list(row)
-        # data[2] = (data[2][:15] + ' ... ') if len(data[2]) > 15 else data[2]
         data_table.insert('', END, values=row)
     db.commit()
     db.close()
@@ -66,12 +64,6 @@ def add():
         dept=DepartmentEntry.get(1.0, "end-1c")
         db=mysql.connector.connect(host="localhost",user="root",password="",database="nsec_db")
         mycursor=db.cursor()
-        # desg = db.converter.escape(desg)
-        # name = db.converter.escape(name)
-        # print(name)
-        # print(iD)
-        # print(desg)
-        # print("INSERT INTO notice_board (id, topic, description) VALUES ('"+str(iD)+"', '"+str(name).upper()+"', '"+str(desg)+"')")
         try:
            mycursor.execute("INSERT INTO company_list (name, year, dept) VALUES ('"+str(name).upper()+"', '"+str(year).upper()+"', '"+str(dept).upper()+"')")
            db.commit()

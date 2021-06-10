@@ -11,8 +11,6 @@ global root_window
 root_window = root
 def on_closing():
     root_window.destroy()
-    # if messagebox.askokcancel("Quit", "Do you want to quit?"):
-    #     window.destroy()
     
 #Header
 header=Frame(root, bg="#e23946", bd=0)

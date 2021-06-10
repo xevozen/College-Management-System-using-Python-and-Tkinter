@@ -11,8 +11,7 @@ global root_window
 root_window = root
 def on_closing():
     root_window.destroy()
-    # if messagebox.askokcancel("Quit", "Do you want to quit?"):
-    #     window.destroy() 
+
 def search():
     option = dropdown.get()
     search_input = searchInput.get()
@@ -34,13 +33,6 @@ def search():
     result_name["text"] = rows[1]
     result_dept["text"] =  rows[3]
     result_sem["text"] = rows[2]
-    # if len(rows) != 0:
-    #     for i in medtab.get_children():
-    #         medtab.delete(i)
-        # medtab.delete(*medtab.get_children())
-    # medtab.insert('', END, values = rows)
-    # for row in rows:
-    #     medtab.insert('', END, values=row)
     db.commit()
     db.close()
     # pass 
@@ -92,8 +84,6 @@ welcome_text.place(x=20, y=10)
 
 close = Button(frame2, text = "Close", bd = 0, command = on_closing, font=("Minion Pro Regular", 16), bg="#fff", fg = "#000")
 close.place(x=830, y=0, height = 50, width = 70)
-# back = Button(frame2, text = "Back", bd = 0, command = on_back, font=("Minion Pro Regular", 16), bg="#fff", fg = "#000")
-# back.place(x=0, y=0, height = 50, width = 70)
 
 #panel
 panel=Frame(root, bg="#bbb", bd=0)
@@ -112,24 +102,5 @@ searchBtn.place(x=700, y=20, height = 30)
 
 result=Frame(root, bd=0)
 result.place(x=0,y=0,width=0,height=0)
-# draw_panel()
+
 root.mainloop()
-
-
-# import mysql.connector
-
-# mydb = mysql.connector.connect(
-#   host="localhost",
-#   user="root",
-#   password="",
-#   database="nsec_db"
-# )
-
-# mycursor = mydb.cursor()
-
-# mycursor.execute("SELECT * FROM student_table")
-
-# myresult = mycursor.fetchall()
-
-# for x in myresult:
-#   print(x)

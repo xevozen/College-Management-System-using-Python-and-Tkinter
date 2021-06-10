@@ -20,8 +20,6 @@ def on_closing():
         on_.config(image=on)
         is_on = True
     window.destroy()
-    # if messagebox.askokcancel("Quit", "Do you want to quit?"):
-    #     window.destroy()
 def draw_login_page():
     global window
     newWindow = Toplevel(root_window)
@@ -49,10 +47,6 @@ def draw_login_page():
                                    width = 20,
                                    bg = "light yellow"
                                    )
-    # password_input = Text(newWindow, height = 1,
-    #             font = ("Helvetica", 16),
-    #             width = 20,
-    #             bg = "light yellow")
     password_input.place(x=120, y=175)
     submit= Button(newWindow, text="LOGIN", command = login, font=("Helvetica", 16), bd =2, bg = "#e23946",fg="#eae2b7", relief=RAISED)
     submit.place(x=150, y=250, width = 100, height = 50)
@@ -63,10 +57,6 @@ def draw_login_page():
 def login():
     username = window.winfo_children()[2].get(1.0, "end-1c")
     password = window.winfo_children()[4].get()
-    # username = username_input.get(1.0, "end-1c")
-    # password = password_input.get(1.0, "end-1c")
-    # print(username)
-    # print(password)
     db = mysql.connector.connect(host="localhost", user="root", password="", database="nsec_db")
     mycursor = db.cursor()
     mycursor.execute("SELECT y FROM global_values WHERE x = 'admin'")
@@ -80,14 +70,12 @@ def login():
     global is_on
     if username == "admin" and password == server_pwd:
         tkinter.messagebox.showinfo("Success",  "Access Granted")
-        # print("admin")
         is_admin = True
         on_.config(image=off)
         is_on = False
         draw_admin()
     else:
         tkinter.messagebox.showinfo("Failure",  "Access Denied")
-        # print("not admin")
         is_admin = False
         on_.config(image=on)
         is_on = True
@@ -134,8 +122,6 @@ def draw_execute_dbms():
 def draw_visitor():
     for widget in dashboard.winfo_children():
         widget.destroy()
-    # text=Label(dashboard, text="This is visitor",font=("Helvetica",36,"bold"), bg ="#bbb", fg="#222")
-    # text.place(x=-5, y=20, width=1080)
     welcome_text["text"] = "Welcome, Visitor"
     image1 = Image.open("media/nsec.jpg")
     test = ImageTk.PhotoImage(image1)

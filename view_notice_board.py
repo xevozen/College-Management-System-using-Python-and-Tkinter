@@ -29,8 +29,6 @@ def search():
         return 
     note_text['text'] = "Data: "+str(len(rows))+" Rows"
     for row in rows:
-        # data = list(row)
-        # data[2] = (data[2][:15] + ' ... ') if len(data[2]) > 15 else data[2]
         data_table.insert('', END, values=row)
     db.commit()
     db.close()
@@ -91,16 +89,9 @@ scrolly=Scrollbar(leftbox,orient=VERTICAL)
 DescriptionEntry=Text(leftbox, font=("Helvetica", 15),bd=0, yscrollcommand=scrolly.set)
 DescriptionEntry.insert(END, "Select Notice to view details")
 DescriptionEntry.configure(state='disabled')
-# DescriptionEntry['text'] = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 scrolly.config(command=DescriptionEntry.yview)
 DescriptionEntry.place(x=10, y=110, width = 450, height = 200)
 scrolly.place(x=460, y=110, height = 200)
-
-
-
-
-
-
 
 # RIGHT BOX
 rightbox=Frame(root,bd=0,bg="indianred")
@@ -137,10 +128,7 @@ data_table.column("name",width=50)
 data_table.column("description",width=30)
 data_table.pack(fill=BOTH,expand=1)
 data_table.bind("<ButtonRelease-1>",getdata)
-# show()
+
 search()
-# random_string()
-
-
 
 root.mainloop()
